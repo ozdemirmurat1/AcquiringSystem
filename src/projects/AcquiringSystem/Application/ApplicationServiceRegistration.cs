@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Core.Application.Pipelines.Logging;
 using System.Reflection;
+using Core.Application.Rules;
 
 namespace Application
 {
@@ -12,6 +13,9 @@ namespace Application
             {
                 configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
             });
+
+            services.AddSubClassesOfType(Assembly.GetExecutingAssembly(), typeof(BaseBusinessRules));
+
             return services;
         }
 
