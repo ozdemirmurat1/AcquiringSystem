@@ -1,7 +1,7 @@
 
 using Application;
-using Core.CrossCuttingConcerns.Exceptions.Extensions;
 using Microsoft.OpenApi.Models;
+using Persistence;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace WebAPI
@@ -12,11 +12,10 @@ namespace WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
             builder.Services.AddControllers();
             builder.Services.AddApplicationServices();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+            builder.Services.AddPersistenceServices(builder.Configuration);
             builder.Services.AddHttpContextAccessor();
 
             builder.Services.AddEndpointsApiExplorer();

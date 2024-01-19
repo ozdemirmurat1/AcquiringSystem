@@ -9,6 +9,8 @@ namespace Domain.Entities
         public string ChamberOfCommerce { get; set; }
         public string IdType { get; set; }
 
+        public ICollection<Merchant> Merchants { get; set; }
+
         public Chain()
         {
             
