@@ -1,5 +1,6 @@
 
 using Application;
+using Core.CrossCuttingConcerns.Exceptions.Extensions;
 
 namespace WebAPI
 {
@@ -22,6 +23,7 @@ namespace WebAPI
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
+                app.ConfigureCustomExceptionMiddleware();
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
