@@ -2,6 +2,8 @@
 using Core.Application.Pipelines.Logging;
 using System.Reflection;
 using Core.Application.Rules;
+using Core.CrossCuttingConcerns.Logging.Serilog.Logger;
+using Core.CrossCuttingConcerns.Logging.Serilog;
 
 namespace Application
 {
@@ -11,10 +13,12 @@ namespace Application
         {
             services.AddMediatR(configuration =>
             {
+                configuration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
                 configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
             });
 
             services.AddSubClassesOfType(Assembly.GetExecutingAssembly(), typeof(BaseBusinessRules));
+            services.AddSingleton<LoggerServiceBase, FileLogger>();
 
             return services;
         }
