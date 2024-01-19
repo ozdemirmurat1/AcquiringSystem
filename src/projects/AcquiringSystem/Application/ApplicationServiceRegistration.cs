@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Core.Application.Pipelines.Logging;
 using System.Reflection;
 
 namespace Application
@@ -7,6 +8,10 @@ namespace Application
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            services.AddMediatR(configuration =>
+            {
+                configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
+            });
             return services;
         }
 
