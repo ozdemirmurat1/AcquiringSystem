@@ -15,6 +15,11 @@ namespace Persistence.EntityConfigurations
             builder.Property(u => u.InformationMessage).HasColumnName("InformationMessage").IsRequired();
             builder.Property(u => u.DeviceBrand).HasColumnName("DeviceBrand").IsRequired();
             builder.Property(u => u.DeviceModel).HasColumnName("DeviceModel").IsRequired();
+
+            builder.HasOne(t => t.Merchant)
+               .WithMany(m => m.Terminals)
+               .HasForeignKey(t => t.MerchantId)
+               .IsRequired();
         }
     }
 }
