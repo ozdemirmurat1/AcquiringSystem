@@ -9,7 +9,7 @@ namespace Persistence.Contexts
     {
         protected IConfiguration Configuration { get; set; }
 
-        public DbSet<Chain> Chains { get; set; }
+        //public DbSet<Chain> Chains { get; set; }
         public DbSet<Merchant> Merchants { get; set; }
         public DbSet<Terminal> Terminals { get; set; }
 

@@ -1,5 +1,6 @@
 
 using Application;
+using Core.CrossCuttingConcerns.Exceptions.Extensions;
 using Microsoft.OpenApi.Models;
 using Persistence;
 using Swashbuckle.AspNetCore.SwaggerUI;
@@ -55,6 +56,7 @@ namespace WebAPI
                 {
                     opt.DocExpansion(DocExpansion.None);
                 });
+                app.ConfigureCustomExceptionMiddleware();
             }
 
             app.UseHttpsRedirection();

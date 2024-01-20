@@ -19,7 +19,7 @@ namespace Persistence.EntityConfigurations
            .WithOne(m => m.Chain)
            .HasForeignKey(m => m.ChainId);
 
-           // .OnDelete(DeleteBehavior.Cascade);  Eğer bir Chain silinirse, bağlı tüm Merchants'lar da silinir.
+            // .OnDelete(DeleteBehavior.Cascade);  Eğer bir Chain silinirse, bağlı tüm Merchants'lar da silinir.
 
             builder.HasQueryFilter(oc => !oc.DeletedDate.HasValue);
         }
