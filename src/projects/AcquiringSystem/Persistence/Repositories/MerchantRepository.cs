@@ -5,7 +5,7 @@ using Persistence.Contexts;
 
 namespace Persistence.Repositories
 {
-    public class MerchantRepository : EfRepositoryBase<Merchant, Guid, BaseDbContext>, IMerchantRepository
+    public class MerchantRepository : EfRepositoryBase<Merchant, string, BaseDbContext>, IMerchantRepository
     {
         public MerchantRepository(BaseDbContext context) : base(context)
         {

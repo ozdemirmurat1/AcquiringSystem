@@ -12,8 +12,8 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(BaseDbContext))]
-    [Migration("20240120131907_mig_6")]
-    partial class mig_6
+    [Migration("20240120212621_mig_1")]
+    partial class mig_1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,9 +27,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Chain", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)")
                         .HasColumnName("Id");
 
                     b.Property<string>("ChainCode")
@@ -67,9 +66,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Merchant", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)")
                         .HasColumnName("Id");
 
                     b.Property<string>("Address")
@@ -77,8 +75,9 @@ namespace Persistence.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Address");
 
-                    b.Property<Guid>("ChainId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ChainId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -128,9 +127,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Terminal", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)")
                         .HasColumnName("Id");
 
                     b.Property<DateTime>("CreatedDate")
@@ -154,8 +152,9 @@ namespace Persistence.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("InformationMessage");
 
-                    b.Property<Guid>("MerchantId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("MerchantId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("TerminalIdentification")
                         .IsRequired()

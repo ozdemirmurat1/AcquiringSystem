@@ -3,7 +3,7 @@
     public class Entity<TId> : IEntityTimeStamps
     {
 
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public DateTime? DeletedDate { get; set; }
@@ -13,7 +13,7 @@
             Id = default!;
         }
 
-        public Entity(Guid id) : this()
+        public Entity(string id) : this()
         {
             Id = id;
         }

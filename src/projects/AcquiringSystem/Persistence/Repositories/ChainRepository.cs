@@ -5,7 +5,7 @@ using Persistence.Contexts;
 
 namespace Persistence.Repositories
 {
-    public class ChainRepository : EfRepositoryBase<Chain, Guid, BaseDbContext>, IChainRepository
+    public class ChainRepository : EfRepositoryBase<Chain, string, BaseDbContext>, IChainRepository
     {
         public ChainRepository(BaseDbContext context):base(context) 
         {

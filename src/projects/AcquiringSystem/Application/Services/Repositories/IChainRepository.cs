@@ -3,7 +3,7 @@ using Domain.Entities;
 
 namespace Application.Services.Repositories
 {
-    public interface IChainRepository : IAsyncRepository<Chain,Guid>, IRepository<Chain, Guid>
+    public interface IChainRepository : IAsyncRepository<Chain,string>, IRepository<Chain, string>
     {
     }
 }
