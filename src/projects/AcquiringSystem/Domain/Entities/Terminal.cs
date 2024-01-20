@@ -9,6 +9,9 @@ namespace Domain.Entities
         public string DeviceBrand { get; set; }
         public string DeviceModel{ get; set; }
 
+        public Guid MerchantId { get; set; }
+        public Merchant Merchant { get; set; }
+
         public Terminal()
         {
             

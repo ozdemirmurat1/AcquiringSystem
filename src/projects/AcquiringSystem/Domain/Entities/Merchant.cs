@@ -16,6 +16,8 @@ namespace Domain.Entities
         public Guid ChainId { get; set; }
         public Chain Chain { get; set; }
 
+        public ICollection<Terminal> Terminals { get; set; }
+
         public Merchant()
         {
             
