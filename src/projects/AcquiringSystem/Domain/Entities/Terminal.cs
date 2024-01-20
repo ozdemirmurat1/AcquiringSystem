@@ -6,6 +6,8 @@ namespace Domain.Entities
     {
         public string TerminalIdentification { get; set; }
         public string InformationMessage { get; set; }
+        public string DeviceBrand { get; set; }
+        public string DeviceModel{ get; set; }
 
         public Terminal()
         {
