@@ -4,6 +4,7 @@ using System.Reflection;
 using Core.Application.Rules;
 using Core.CrossCuttingConcerns.Logging.Serilog.Logger;
 using Core.CrossCuttingConcerns.Logging.Serilog;
+using Core.Application.Pipelines.Validation;
 
 namespace Application
 {
@@ -15,6 +16,7 @@ namespace Application
             {
                 configuration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
                 configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
+                configuration.AddOpenBehavior(typeof(RequestValidationBehavior<,>));
             });
 
             services.AddSubClassesOfType(Assembly.GetExecutingAssembly(), typeof(BaseBusinessRules));
