@@ -10,6 +10,7 @@ namespace Persistence.EntityConfigurations
         {
             builder.ToTable("Merchants").HasKey(u => u.Id);
 
+            builder.Property(u => u.Id).HasColumnName("Id").IsRequired();
             builder.Property(u => u.MerchantNumber).HasColumnName("MerchantNumber").IsRequired();
             builder.Property(u => u.MerchantName).HasColumnName("MerchantName").IsRequired();
             builder.Property(u => u.Province).HasColumnName("Province").IsRequired();
