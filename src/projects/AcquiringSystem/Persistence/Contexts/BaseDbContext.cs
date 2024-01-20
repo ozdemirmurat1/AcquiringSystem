@@ -9,8 +9,9 @@ namespace Persistence.Contexts
     {
         protected IConfiguration Configuration { get; set; }
 
-        public DbSet<Chain> Brands { get; set; }
+        public DbSet<Chain> Chains { get; set; }
         public DbSet<Merchant> Merchants { get; set; }
+        public DbSet<Terminal> Terminals { get; set; }
 
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
