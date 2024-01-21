@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Chains\Commands\Delete\" />
     <Folder Include="Features\Chains\Constants\" />
     <Folder Include="Features\Chains\Models\" />
     <Folder Include="Features\Chains\Queries\" />
