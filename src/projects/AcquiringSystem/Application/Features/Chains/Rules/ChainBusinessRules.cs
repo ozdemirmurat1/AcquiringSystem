@@ -13,11 +13,25 @@ namespace Application.Features.Chains.Rules
             _chainRepository = chainRepository;
         }
 
-        public async Task ChainCodeCanNotBeDuplicated(string chainCode)
+        public async Task CreateChainCodeCanNotBeDuplicated(string chainCode)
         {
-            var result=await _chainRepository.GetListAsync(b=>b.ChainCode == chainCode);
+            var result=await _chainRepository.AnyAsync(b=>b.ChainCode == chainCode);
 
-            if (result.Items.Any()) throw new BusinessException("Chain Code Already Exits");
+            if (result) throw new BusinessException("Chain Code Already Exits");
+        }
+
+        public async Task GetChainExistsCheck(string id)
+        {
+            var result=await _chainRepository.GetAsync(b=>b.Id == id);
+
+            if (result == null) throw new BusinessException("Bu İşyeri Bulunamadı!");
+        }
+
+        public async Task UpdateChainCodeCanNotBeDuplicated(string chainCode,string id)
+        {
+            var result = await _chainRepository.AnyAsync(b => b.ChainCode == chainCode && b.Id!=id);
+
+            if (result) throw new BusinessException("Chain Code Already Exits");
         }
     }
 }

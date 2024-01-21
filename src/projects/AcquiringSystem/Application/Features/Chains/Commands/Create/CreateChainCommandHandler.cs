@@ -18,7 +18,7 @@ namespace Application.Features.Chains.Commands.Create
 
         public async Task<CreateChainCommandResponse> Handle(CreateChainCommand request, CancellationToken cancellationToken)
         {
-            await _chainBusinessRules.ChainCodeCanNotBeDuplicated(request.ChainCode);
+            await _chainBusinessRules.CreateChainCodeCanNotBeDuplicated(request.ChainCode);
 
             Chain chain = new(
                 id: Guid.NewGuid().ToString(),

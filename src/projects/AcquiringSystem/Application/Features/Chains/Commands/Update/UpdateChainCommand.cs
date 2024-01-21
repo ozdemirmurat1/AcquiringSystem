@@ -1,6 +1,12 @@
-﻿namespace Application.Features.Chains.Commands.Update
+﻿using Application.Features.Chains.Commands.Create;
+using MediatR;
+
+namespace Application.Features.Chains.Commands.Update
 {
-    internal class UpdateChainCommand
-    {
-    }
+    public sealed record UpdateChainCommand(
+        string id,
+        string ChainCode,
+        string TaxAdministration,
+        string ChamberOfCommerce,
+        string IdType) : IRequest<UpdateChainCommandResponse>;
 }

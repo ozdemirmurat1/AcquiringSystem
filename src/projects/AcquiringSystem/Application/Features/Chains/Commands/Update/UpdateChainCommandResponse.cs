@@ -1,6 +1,5 @@
 ﻿namespace Application.Features.Chains.Commands.Update
 {
-    internal class UpdateChainCommandResponse
-    {
-    }
+    public sealed record UpdateChainCommandResponse(
+        string Message="İş Yeri Başarıyla Güncellendi!");
 }
