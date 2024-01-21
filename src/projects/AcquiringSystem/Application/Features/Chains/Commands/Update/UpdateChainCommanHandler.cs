@@ -1,5 +1,6 @@
 ﻿using Application.Features.Chains.Rules;
 using Application.Services.Repositories;
+using Core.CrossCuttingConcerns.Logging.Serilog;
 using Domain.Entities;
 using MediatR;
 
@@ -9,11 +10,13 @@ namespace Application.Features.Chains.Commands.Update
     {
         private readonly IChainRepository _chainRepository;
         private readonly ChainBusinessRules _chainBusinessRules;
+        private readonly LoggerServiceBase _loggerServiceBase;
 
-        public UpdateChainCommanHandler(IChainRepository chainRepository, ChainBusinessRules chainBusinessRules)
+        public UpdateChainCommanHandler(IChainRepository chainRepository, ChainBusinessRules chainBusinessRules, LoggerServiceBase loggerServiceBase)
         {
             _chainRepository = chainRepository;
             _chainBusinessRules = chainBusinessRules;
+            _loggerServiceBase = loggerServiceBase;
         }
 
         public async Task<UpdateChainCommandResponse> Handle(UpdateChainCommand request, CancellationToken cancellationToken)
@@ -31,6 +34,8 @@ namespace Application.Features.Chains.Commands.Update
             chain.IdType=request.IdType;
 
             await _chainRepository.UpdateAsync(chain);
+            _loggerServiceBase.Info("İŞ YERİ BAŞARIYL GÜNCELLENDİ");
+
             return new();
         }
 
