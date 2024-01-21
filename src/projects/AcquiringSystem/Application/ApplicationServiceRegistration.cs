@@ -5,6 +5,7 @@ using Core.Application.Rules;
 using Core.CrossCuttingConcerns.Logging.Serilog.Logger;
 using Core.CrossCuttingConcerns.Logging.Serilog;
 using Core.Application.Pipelines.Validation;
+using FluentValidation;
 
 namespace Application
 {
@@ -20,6 +21,7 @@ namespace Application
             });
 
             services.AddSubClassesOfType(Assembly.GetExecutingAssembly(), typeof(BaseBusinessRules));
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddSingleton<LoggerServiceBase, FileLogger>();
 
             return services;
