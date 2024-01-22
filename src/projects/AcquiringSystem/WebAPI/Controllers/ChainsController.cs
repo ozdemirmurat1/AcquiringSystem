@@ -16,35 +16,35 @@ namespace WebAPI.Controllers
     public class ChainsController:BaseController
     {
         [HttpPost("[action]")]
-        public async Task<IActionResult> Create(CreateChainCommand request, CancellationToken cancellationToken)
+        public async Task<IActionResult> Create([FromBody]CreateChainCommand request, CancellationToken cancellationToken)
         {
             CreateChainCommandResponse response = await Mediator.Send(request, cancellationToken);
             return Ok(response);
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> Update(UpdateChainCommand request, CancellationToken cancellationToken)
+        public async Task<IActionResult> Update([FromBody]UpdateChainCommand request, CancellationToken cancellationToken)
         {
             UpdateChainCommandResponse response = await Mediator.Send(request,cancellationToken);
             return Ok(response);
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> Delete(DeleteChainCommand request, CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete([FromBody]DeleteChainCommand request, CancellationToken cancellationToken)
         {
             DeleteChainCommandResponse response = await Mediator.Send(request, cancellationToken);
             return Ok(response);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById([FromRoute] GetByIdChainQuery getByIdChainQuery)
+        public async Task<IActionResult> GetById([FromRoute]GetByIdChainQuery getByIdChainQuery)
         {
             GetByIdChainQueryResponse result = await Mediator.Send(getByIdChainQuery);
             return Ok(result);
         }
 
         [HttpGet("[action]/{id}")]
-        public async Task<IActionResult> GetByIdWithMerchant([FromRoute] GetByIdWithMerchantChainQuery getByIdWithMerchantChainQuery)
+        public async Task<IActionResult> GetByIdWithMerchant([FromRoute]GetByIdWithMerchantChainQuery getByIdWithMerchantChainQuery)
         {
             GetByIdWithMercantChainQueryResponse result = await Mediator.Send(getByIdWithMerchantChainQuery);
             return Ok(result);

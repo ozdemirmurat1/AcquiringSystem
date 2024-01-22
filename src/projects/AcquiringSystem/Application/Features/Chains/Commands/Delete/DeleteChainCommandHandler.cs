@@ -22,10 +22,11 @@ namespace Application.Features.Chains.Commands.Delete
 
         public async Task<DeleteChainCommandResponse> Handle(DeleteChainCommand request, CancellationToken cancellationToken)
         {
+            await _chainBusinessRules.GetChainExistsCheck(request.id);
+
             Chain? chain = await _chainRepository.GetAsync(predicate: uoc => uoc.Id == request.id,
                     cancellationToken: cancellationToken);
 
-            await _chainBusinessRules.TaskChainShouldExistWhenSelected(chain);
             await _chainRepository.DeleteAsync(chain!);
 
             _loggerServiceBase.Info("İş Yeri Başarıyla Silindi!");

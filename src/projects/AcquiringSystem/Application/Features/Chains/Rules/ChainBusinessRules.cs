@@ -18,7 +18,7 @@ namespace Application.Features.Chains.Rules
         {
             var result=await _chainRepository.AnyAsync(b=>b.ChainCode == chainCode);
 
-            if (result) throw new BusinessException("Chain Code Already Exits");
+            if (result) throw new BusinessException("Bu İş yeri Numarası zaten mevcut!");
         }
 
         public async Task GetChainExistsCheck(string id)
@@ -32,7 +32,7 @@ namespace Application.Features.Chains.Rules
         {
             var result = await _chainRepository.AnyAsync(b => b.ChainCode == chainCode && b.Id!=id);
 
-            if (result) throw new BusinessException("Chain Code Already Exits");
+            if (result) throw new BusinessException("Bu işyeri numarası zaten mevcut!");
         }
 
         public Task TaskChainShouldExistWhenSelected(Chain? chain)

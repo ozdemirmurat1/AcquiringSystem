@@ -7,9 +7,9 @@ using Core.Application.Responses;
 using Core.Persistence.Paging;
 using Domain.Entities;
 
-namespace Application.Features.Chains.Constants
+namespace Application.Features.Chains.Profiles
 {
-    public class MappingProfiles:Profile
+    public class MappingProfiles : Profile
     {
         public MappingProfiles()
         {
@@ -17,8 +17,8 @@ namespace Application.Features.Chains.Constants
             CreateMap<IPaginate<Chain>, GetListResponse<GetListChainQueryResponse>>().ReverseMap();
             CreateMap<Chain, GetListChainQueryResponse>().ReverseMap();
             CreateMap<IPaginate<Chain>, GetListResponse<GetListWithMerchantChainQueryResponse>>().ReverseMap();
-            CreateMap<Chain,GetListWithMerchantChainQueryResponse>().ReverseMap();
-            CreateMap<Chain,GetByIdWithMercantChainQueryResponse>().ReverseMap();
+            CreateMap<Chain, GetListWithMerchantChainQueryResponse>().ReverseMap();
+            CreateMap<Chain, GetByIdWithMercantChainQueryResponse>().ReverseMap();
             CreateMap<Merchant, MerchantDto>().ReverseMap();
 
         }
