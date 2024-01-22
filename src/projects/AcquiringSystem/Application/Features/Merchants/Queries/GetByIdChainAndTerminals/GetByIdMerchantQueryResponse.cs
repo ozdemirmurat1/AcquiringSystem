@@ -1,7 +1,7 @@
 ﻿using Application.Features.Merchants.Models;
 using Core.Application.Responses;
 
-namespace Application.Features.Merchants.Queries.GetById
+namespace Application.Features.Merchants.Queries.GetByIdChainAndTerminals
 {
     public sealed record GetByIdMerchantQueryResponse(
         string MerchantNumber,

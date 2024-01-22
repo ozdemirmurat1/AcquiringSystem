@@ -1,5 +1,4 @@
-﻿using Application.Features.Chains.Queries.GetById;
-using Application.Features.Chains.Rules;
+﻿using Application.Features.Chains.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;

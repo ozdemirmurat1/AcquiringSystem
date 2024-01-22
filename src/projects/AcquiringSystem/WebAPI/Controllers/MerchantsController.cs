@@ -1,7 +1,7 @@
-﻿using Application.Features.Chains.Commands.Update;
-using Application.Features.Merchants.Commands.Create;
+﻿using Application.Features.Merchants.Commands.Create;
 using Application.Features.Merchants.Commands.Delete;
 using Application.Features.Merchants.Commands.Update;
+using Application.Features.Merchants.Queries.GetByIdChainAndTerminals;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -29,6 +29,13 @@ namespace WebAPI.Controllers
         {
             UpdateMerchantCommandResponse response = await Mediator.Send(request, cancellationToken);
             return Ok(response);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdWithChainAndTerminals([FromRoute] GetByIdMerchantQuery getByIdMerchantQuery)
+        {
+            GetByIdMerchantQueryResponse result = await Mediator.Send(getByIdMerchantQuery);
+            return Ok(result);
         }
     }
 }
