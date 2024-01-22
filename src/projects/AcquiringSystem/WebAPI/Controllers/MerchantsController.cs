@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             return Ok(response);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("[action]/{id}")]
         public async Task<IActionResult> GetByIdWithChainAndTerminals([FromRoute] GetByIdMerchantQuery getByIdMerchantQuery)
         {
             GetByIdMerchantQueryResponse result = await Mediator.Send(getByIdMerchantQuery);
