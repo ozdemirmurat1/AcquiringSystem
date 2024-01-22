@@ -13,10 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Chains\Constants\" />
-    <Folder Include="Features\Chains\Models\" />
-    <Folder Include="Features\Chains\Queries\" />
     <Folder Include="Features\Chains\Profiles\" />
+    <Folder Include="Features\Chains\Queries\GetListWithMerchant\" />
     <Folder Include="Features\Merchants\Commands\" />
     <Folder Include="Features\Merchants\Constants\" />
     <Folder Include="Features\Merchants\Models\" />
