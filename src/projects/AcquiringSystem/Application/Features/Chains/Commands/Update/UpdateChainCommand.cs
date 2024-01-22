@@ -1,5 +1,4 @@
-﻿using Application.Features.Chains.Commands.Create;
-using MediatR;
+﻿using MediatR;
 
 namespace Application.Features.Chains.Commands.Update
 {

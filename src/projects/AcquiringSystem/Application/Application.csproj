@@ -14,10 +14,8 @@
 
   <ItemGroup>
     <Folder Include="Features\Chains\Constants\" />
-    <Folder Include="Features\Merchants\Commands\Update\" />
     <Folder Include="Features\Merchants\Constants\" />
-    <Folder Include="Features\Merchants\Models\" />
-    <Folder Include="Features\Merchants\Queries\" />
+    <Folder Include="Features\Merchants\Queries\GetList\" />
     <Folder Include="Features\Terminals\Commands\" />
     <Folder Include="Features\Terminals\Constants\" />
     <Folder Include="Features\Terminals\Models\" />

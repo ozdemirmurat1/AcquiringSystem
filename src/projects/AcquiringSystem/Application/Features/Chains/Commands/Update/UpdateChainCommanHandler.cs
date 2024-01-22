@@ -34,7 +34,7 @@ namespace Application.Features.Chains.Commands.Update
             chain.IdType=request.IdType;
 
             await _chainRepository.UpdateAsync(chain);
-            _loggerServiceBase.Info("İŞ YERİ BAŞARIYL GÜNCELLENDİ");
+            _loggerServiceBase.Info("İŞ YERİ BAŞARIYLA GÜNCELLENDİ");
 
             return new();
         }

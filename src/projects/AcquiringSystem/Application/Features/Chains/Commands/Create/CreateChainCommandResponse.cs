@@ -1,5 +1,7 @@
-﻿namespace Application.Features.Chains.Commands.Create
+﻿using Core.Application.Responses;
+
+namespace Application.Features.Chains.Commands.Create
 {
     public sealed record CreateChainCommandResponse(
-        string Message="İş Yeri Başarıyla Oluşturuldu!");
+        string Message="İş Yeri Başarıyla Oluşturuldu!") :IResponse;
 }

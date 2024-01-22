@@ -8,10 +8,12 @@ namespace Application.Features.Merchants.Rules
     public class MerchantBusinessRules:BaseBusinessRules
     {
         private readonly IMerchantRepository _merchantRepository;
+        private readonly IChainRepository _chainRepository;
 
-        public MerchantBusinessRules(IMerchantRepository merchantRepository)
+        public MerchantBusinessRules(IMerchantRepository merchantRepository, IChainRepository chainRepository)
         {
             _merchantRepository = merchantRepository;
+            _chainRepository = chainRepository;
         }
 
         public Task MerchantShouldBeExistWhenSelected(Merchant? merchant)
@@ -40,6 +42,13 @@ namespace Application.Features.Merchants.Rules
             var result = await _merchantRepository.AnyAsync(b => b.Id == id);
 
             if (!result) throw new BusinessException("Üye İşyeri Bulunamadı!");
+        }
+
+        public async Task GetChainControlExist(string id)
+        {
+            var result=await _chainRepository.AnyAsync(b=>b.Id == id);
+
+            if (!result) throw new BusinessException("İş Yeri Bulunamadı");
         }
     }
 }
