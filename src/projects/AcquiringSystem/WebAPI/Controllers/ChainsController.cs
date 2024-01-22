@@ -4,6 +4,7 @@ using Application.Features.Chains.Commands.Update;
 using Application.Features.Chains.Queries.GetById;
 using Application.Features.Chains.Queries.GetByIdWithMerchant;
 using Application.Features.Chains.Queries.GetList;
+using Application.Features.Chains.Queries.GetListWithMerchant;
 using Core.Application.Requests;
 using Core.Application.Responses;
 using Microsoft.AspNetCore.Mvc;
@@ -49,11 +50,20 @@ namespace WebAPI.Controllers
             return Ok(result);
         }
 
-        [HttpGet]
+        [HttpGet("[action]")]
         public async Task<IActionResult> GetList([FromQuery]PageRequest pageRequest)
         {
             GetListChainQuery getListChainQuery = new() { PageRequest = pageRequest };
             GetListResponse<GetListChainQueryResponse> result = await Mediator.Send(getListChainQuery);
+            return Ok(result);
+
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetListWithMerchant([FromQuery]PageRequest pageRequest)
+        {
+            GetListWithMerchantChainQuery getListWithMerchantChainQuery = new() { PageRequest = pageRequest };
+            GetListResponse<GetListWithMerchantChainQueryResponse> result = await Mediator.Send(getListWithMerchantChainQuery);
             return Ok(result);
 
         }

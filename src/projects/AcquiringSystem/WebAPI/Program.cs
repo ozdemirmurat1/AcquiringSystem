@@ -56,7 +56,7 @@ namespace WebAPI
                 {
                     opt.DocExpansion(DocExpansion.None);
                 });
-                app.ConfigureCustomExceptionMiddleware();
+                //app.ConfigureCustomExceptionMiddleware();
             }
 
             app.UseHttpsRedirection();

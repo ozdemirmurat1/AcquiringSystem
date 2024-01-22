@@ -1,4 +1,5 @@
-﻿using Application.Services.Repositories;
+﻿using Application.Features.Chains.Queries.GetListWithMerchant;
+using Application.Services.Repositories;
 using AutoMapper;
 using Core.Application.Responses;
 using Core.Persistence.Paging;
@@ -25,10 +26,11 @@ namespace Application.Features.Chains.Queries.GetList
                 size: request.PageRequest.PageSize,
                 cancellationToken:cancellationToken);
 
-            // MAPPER KULLANDIK
 
             GetListResponse<GetListChainQueryResponse> response = _mapper.Map<GetListResponse<GetListChainQueryResponse>>(chains);
             return response;
+
+
         }
     }
 }

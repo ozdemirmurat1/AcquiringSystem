@@ -1,9 +1,11 @@
-﻿namespace Application.Features.Chains.Queries.GetById
+﻿using Core.Application.Responses;
+
+namespace Application.Features.Chains.Queries.GetById
 {
     public sealed record GetByIdChainQueryResponse(
          string ChainCode, 
          string TaxAdministration, 
          string ChamberOfCommerce, 
-         string IdType);
+         string IdType):IResponse;
 
 }
