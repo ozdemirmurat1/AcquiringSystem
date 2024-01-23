@@ -1,5 +1,4 @@
 ﻿using Application.Features.Chains.Models;
-using Core.Application.Dtos;
 using Core.Application.Responses;
 
 namespace Application.Features.Chains.Queries.GetListWithMerchant

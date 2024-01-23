@@ -20,6 +20,8 @@ namespace Application.Features.Merchants.Commands.Create
             RuleFor(p => p.Email).NotNull().WithMessage("Email Alanı boş olamaz!");
             RuleFor(p => p.TelephoneNumber).NotEmpty().WithMessage("Telefon Numarası boş olamaz!");
             RuleFor(p => p.TelephoneNumber).NotNull().WithMessage("Telefon Numarası olamaz!");
+            RuleFor(p => p.ChainId).NotEmpty().WithMessage("İş yeri numarası boş olamaz!");
+            RuleFor(p => p.ChainId).NotNull().WithMessage("İş yeri numarası Numarası olamaz!");
         }
     }
 }

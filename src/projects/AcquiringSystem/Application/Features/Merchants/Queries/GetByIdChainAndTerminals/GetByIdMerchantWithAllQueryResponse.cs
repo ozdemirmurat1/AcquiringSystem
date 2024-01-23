@@ -3,7 +3,7 @@ using Core.Application.Responses;
 
 namespace Application.Features.Merchants.Queries.GetByIdChainAndTerminals
 {
-    public sealed record GetByIdMerchantQueryResponse(
+    public sealed record GetByIdMerchantWithAllQueryResponse(
         string MerchantNumber,
         string MerchantName,
         string Province,

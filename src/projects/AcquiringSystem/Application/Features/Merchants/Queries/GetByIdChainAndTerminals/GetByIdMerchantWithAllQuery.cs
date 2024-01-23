@@ -2,7 +2,7 @@
 
 namespace Application.Features.Merchants.Queries.GetByIdChainAndTerminals
 {
-    public sealed record GetByIdMerchantQuery(
+    public sealed record GetByIdMerchantWithAllQuery(
         string id
-        ):IRequest<GetByIdMerchantQueryResponse>;
+        ):IRequest<GetByIdMerchantWithAllQueryResponse>;
 }

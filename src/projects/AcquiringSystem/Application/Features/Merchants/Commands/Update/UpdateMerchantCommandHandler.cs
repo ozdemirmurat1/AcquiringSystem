@@ -22,10 +22,11 @@ namespace Application.Features.Merchants.Commands.Update
         public async Task<UpdateMerchantCommandResponse> Handle(UpdateMerchantCommand request, CancellationToken cancellationToken)
         {
             await _merchantBusinessRules.GetMerchantExistsCheck(request!.id);
+            await _merchantBusinessRules.GetChainControlExist(request.ChainId);
 
             Merchant? merchant = await _merchantRepository.GetAsync(predicate: u => u.Id == request.id, cancellationToken: cancellationToken);
 
-            await _merchantBusinessRules.GetChainControlExist(request.ChainId);
+            
             await _merchantBusinessRules.UpdateMerchantNumberCanNotBeDuplicated(merchant!.MerchantNumber, merchant.Id);
 
             merchant=_mapper.Map(request,merchant);

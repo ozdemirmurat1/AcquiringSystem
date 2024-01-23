@@ -22,6 +22,7 @@ namespace Application.Features.Merchants.Commands.Create
         public async Task<CreateMerchantCommandResponse> Handle(CreateMerchantCommand request, CancellationToken cancellationToken)
         {
             await _merchantBusinessRules.CreateMerchantNumberCanNotBeDuplicated(request.MerchantNumber);
+            await _merchantBusinessRules.GetChainControlExist(request.ChainId);
 
             Merchant merchant = _mapper.Map<Merchant>(request);
 
