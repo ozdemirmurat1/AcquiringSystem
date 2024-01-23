@@ -15,11 +15,7 @@
   <ItemGroup>
     <Folder Include="Features\Chains\Constants\" />
     <Folder Include="Features\Merchants\Constants\" />
-    <Folder Include="Features\Terminals\Commands\Delete\" />
-    <Folder Include="Features\Terminals\Commands\Update\" />
     <Folder Include="Features\Terminals\Constants\" />
-    <Folder Include="Features\Terminals\Models\" />
-    <Folder Include="Features\Terminals\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

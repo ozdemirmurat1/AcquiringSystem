@@ -1,7 +1,5 @@
-﻿using Application.Features.Chains.Rules;
-using Application.Features.Merchants.Rules;
+﻿using Application.Features.Merchants.Rules;
 using Application.Services.Repositories;
-using Core.CrossCuttingConcerns.Logging.Serilog;
 using Domain.Entities;
 using MediatR;
 

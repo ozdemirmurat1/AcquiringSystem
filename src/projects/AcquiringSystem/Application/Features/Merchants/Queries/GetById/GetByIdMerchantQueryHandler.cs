@@ -1,10 +1,8 @@
-﻿using Application.Features.Merchants.Queries.GetByIdChainAndTerminals;
-using Application.Features.Merchants.Rules;
+﻿using Application.Features.Merchants.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Merchants.Queries.GetById
 {
