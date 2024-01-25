@@ -55,6 +55,8 @@ namespace WebAPI
                 //app.ConfigureCustomExceptionMiddleware();
             }
 
+            app.UseCors();
+
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
