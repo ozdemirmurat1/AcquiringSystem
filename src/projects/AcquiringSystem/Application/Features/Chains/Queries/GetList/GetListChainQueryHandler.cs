@@ -8,7 +8,7 @@ using MediatR;
 
 namespace Application.Features.Chains.Queries.GetList
 {
-    public sealed class GetListChainQueryHandler : IRequestHandler<GetListChainQuery, GetListResponse<GetListChainQueryResponse>>
+    public sealed class GetListChainQueryHandler : IRequestHandler<GetListChainQuery, ResponseDto<GetListResponse<GetListChainQueryResponse>>>
     {
         private readonly IChainRepository _chainRepository;
         private readonly IMapper _mapper;
@@ -19,7 +19,7 @@ namespace Application.Features.Chains.Queries.GetList
             _mapper = mapper;
         }
 
-        public async Task<GetListResponse<GetListChainQueryResponse>> Handle(GetListChainQuery request, CancellationToken cancellationToken)
+        public async Task<ResponseDto<GetListResponse<GetListChainQueryResponse>>> Handle(GetListChainQuery request, CancellationToken cancellationToken)
         {
             IPaginate<Chain> chains = await _chainRepository.GetListAsync(
                 index: request.PageRequest.PageIndex,
@@ -28,7 +28,13 @@ namespace Application.Features.Chains.Queries.GetList
 
 
             GetListResponse<GetListChainQueryResponse> response = _mapper.Map<GetListResponse<GetListChainQueryResponse>>(chains);
-            return response;
+
+            var responseDto = new Core.Application.Responses.ResponseDto<GetListResponse<GetListChainQueryResponse>>
+            {
+                Data = response,
+            };
+                
+            return responseDto;
 
 
         }

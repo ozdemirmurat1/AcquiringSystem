@@ -54,7 +54,7 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> GetList([FromQuery]PageRequest pageRequest)
         {
             GetListChainQuery getListChainQuery = new() { PageRequest = pageRequest };
-            GetListResponse<GetListChainQueryResponse> result = await Mediator.Send(getListChainQuery);
+            ResponseDto<GetListResponse<GetListChainQueryResponse>> result = await Mediator.Send(getListChainQuery);
             return Ok(result);
 
         }

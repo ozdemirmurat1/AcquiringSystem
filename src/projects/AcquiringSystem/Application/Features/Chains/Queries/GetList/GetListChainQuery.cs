@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Application.Features.Chains.Queries.GetList
 {
-    public sealed class GetListChainQuery : IRequest<GetListResponse<GetListChainQueryResponse>>
+    public sealed class GetListChainQuery : IRequest<ResponseDto<GetListResponse<GetListChainQueryResponse>>>
     {
         public PageRequest PageRequest { get; set; }
     }
