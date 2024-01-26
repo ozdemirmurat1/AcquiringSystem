@@ -7,10 +7,12 @@ using Application.Features.Chains.Queries.GetList;
 using Application.Features.Chains.Queries.GetListWithMerchant;
 using Core.Application.Requests;
 using Core.Application.Responses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
+    [Authorize(AuthenticationSchemes = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class ChainsController:BaseController

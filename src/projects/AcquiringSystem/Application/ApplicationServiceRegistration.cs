@@ -6,6 +6,7 @@ using Core.CrossCuttingConcerns.Logging.Serilog.Logger;
 using Core.CrossCuttingConcerns.Logging.Serilog;
 using Core.Application.Pipelines.Validation;
 using FluentValidation;
+using Core.Application.Pipelines.Authorization;
 
 namespace Application
 {
@@ -17,6 +18,7 @@ namespace Application
             services.AddMediatR(configuration =>
             {
                 configuration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+                configuration.AddOpenBehavior(typeof(AuthorizationBehavior<,>));
                 configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
                 configuration.AddOpenBehavior(typeof(RequestValidationBehavior<,>));
             });

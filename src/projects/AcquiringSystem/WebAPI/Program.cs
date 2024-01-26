@@ -1,6 +1,10 @@
 
 using Application;
-using Core.CrossCuttingConcerns.Exceptions.Extensions;
+using Core.Security;
+using Core.Security.Encryption;
+using Core.Security.JWT;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Persistence;
 using Swashbuckle.AspNetCore.SwaggerUI;
@@ -15,9 +19,29 @@ namespace WebAPI
 
             builder.Services.AddControllers();
             builder.Services.AddApplicationServices();
-
+            builder.Services.AddSecurityServices();
             builder.Services.AddPersistenceServices(builder.Configuration);
             builder.Services.AddHttpContextAccessor();
+
+            const string tokenOptionsConfigurationSection = "TokenOptions";
+            TokenOptions tokenOptions =
+                builder.Configuration.GetSection(tokenOptionsConfigurationSection).Get<TokenOptions>()
+                ?? throw new InvalidOperationException($"\"{tokenOptionsConfigurationSection}\" section cannot found in configuration.");
+            builder.Services
+                .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer("Admin",options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidIssuer = tokenOptions.Issuer,
+                        ValidAudience = tokenOptions.Audience,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+                    };
+                });
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
