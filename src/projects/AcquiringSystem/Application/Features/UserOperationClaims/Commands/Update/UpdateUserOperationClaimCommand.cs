@@ -1,9 +1,11 @@
-﻿using Application.Features.UserOperationClaims.Rules;
+﻿using Application.Features.UserOperationClaims.Constants;
+using Application.Features.UserOperationClaims.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
 using Core.Application.Pipelines.Authorization;
 using Core.Security.Entities;
 using MediatR;
+using static Application.Features.UserOperationClaims.Constants.UserOperationClaimsOperationClaims;
 
 namespace Application.Features.UserOperationClaims.Commands.Update
 {

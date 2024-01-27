@@ -3,6 +3,7 @@ using Application.Services.Repositories;
 using AutoMapper;
 using Core.Application.Pipelines.Authorization;
 using Core.Security.Entities;
+using static Application.Features.UserOperationClaims.Constants.UserOperationClaimsOperationClaims;
 using MediatR;
 
 namespace Application.Features.UserOperationClaims.Commands.Create
