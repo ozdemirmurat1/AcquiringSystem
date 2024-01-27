@@ -3,6 +3,7 @@ using Application.Services.Repositories;
 using AutoMapper;
 using Core.Security.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.OperationClaims.Queries.GetById
 {

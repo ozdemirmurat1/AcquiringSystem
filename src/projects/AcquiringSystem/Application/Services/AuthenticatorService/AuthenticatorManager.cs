@@ -1,9 +1,11 @@
 ﻿using Application.Services.Repositories;
 using Core.CrossCuttingConcerns.Exceptions.Types;
+using Core.Mailing;
 using Core.Security.EmailAuthenticator;
 using Core.Security.Entities;
 using Core.Security.Enums;
 using Core.Security.OtpAuthenticator;
+using MimeKit;
 
 namespace Application.Services.AuthenticatorService
 {

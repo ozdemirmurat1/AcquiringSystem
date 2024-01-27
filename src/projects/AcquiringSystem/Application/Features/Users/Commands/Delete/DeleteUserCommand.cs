@@ -1,9 +1,11 @@
 ﻿using Application.Features.Users.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using static Application.Features.Users.Constants.UsersOperationClaims;
 using Core.Application.Pipelines.Authorization;
 using Core.Security.Entities;
 using MediatR;
+using Application.Features.Users.Constants;
 
 namespace Application.Features.Users.Commands.Delete
 {

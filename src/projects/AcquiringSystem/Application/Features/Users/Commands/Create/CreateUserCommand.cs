@@ -4,6 +4,7 @@ using AutoMapper;
 using Core.Application.Pipelines.Authorization;
 using Core.Security.Entities;
 using Core.Security.Hashing;
+using static Application.Features.Users.Constants.UsersOperationClaims;
 using MediatR;
 
 namespace Application.Features.Users.Commands.Create

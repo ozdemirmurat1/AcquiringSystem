@@ -1,6 +1,8 @@
 ﻿using Application.Features.UserOperationClaims.Commands.Create;
 using Application.Features.UserOperationClaims.Commands.Delete;
 using Application.Features.UserOperationClaims.Commands.Update;
+using Application.Features.UserOperationClaims.Queries.GetById;
+using Application.Features.UserOperationClaims.Queries.GetList;
 using AutoMapper;
 using Core.Application.Responses;
 using Core.Persistence.Paging;

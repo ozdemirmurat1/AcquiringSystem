@@ -17,6 +17,13 @@ namespace Persistence
             services.AddScoped<IMerchantRepository, MerchantRepository>();
             services.AddScoped<ITerminalRepository, TerminalRepository>();
 
+            _ = services.AddScoped<IEmailAuthenticatorRepository, EmailAuthenticatorRepository>();
+            _ = services.AddScoped<IOperationClaimRepository, OperationClaimRepository>();
+            _ = services.AddScoped<IOtpAuthenticatorRepository, OtpAuthenticatorRepository>();
+            _ = services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+            _ = services.AddScoped<IUserRepository, UserRepository>();
+            _ = services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
+
             return services;
         }
     }

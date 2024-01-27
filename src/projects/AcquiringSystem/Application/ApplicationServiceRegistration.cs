@@ -7,6 +7,11 @@ using Core.CrossCuttingConcerns.Logging.Serilog;
 using Core.Application.Pipelines.Validation;
 using FluentValidation;
 using Core.Application.Pipelines.Authorization;
+using Application.Services.AuthenticatorService;
+using Application.Services.AuthService;
+using Application.Services.UsersService;
+using Core.Mailing;
+using Core.Mailing.MailKitImplementations;
 
 namespace Application
 {
@@ -26,8 +31,13 @@ namespace Application
 
             services.AddSubClassesOfType(Assembly.GetExecutingAssembly(), typeof(BaseBusinessRules));
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddSingleton<IMailService, MailKitMailService>();
             services.AddSingleton<LoggerServiceBase, FileLogger>();
             services.AddSingleton<LoggerServiceBase, MsSqlLogger>();
+
+            services.AddScoped<IAuthService, AuthManager>();
+            services.AddScoped<IAuthenticatorService, AuthenticatorManager>();
+            services.AddScoped<IUserService, UserManager>();
 
             return services;
         }

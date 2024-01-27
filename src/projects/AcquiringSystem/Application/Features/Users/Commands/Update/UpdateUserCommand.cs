@@ -4,7 +4,9 @@ using AutoMapper;
 using Core.Application.Pipelines.Authorization;
 using Core.Security.Entities;
 using Core.Security.Hashing;
+using static Application.Features.Users.Constants.UsersOperationClaims;
 using MediatR;
+using Application.Features.Users.Constants;
 
 namespace Application.Features.Users.Commands.Update
 {

@@ -2,9 +2,11 @@
 using Application.Services.AuthenticatorService;
 using Application.Services.Repositories;
 using Application.Services.UsersService;
+using Core.Mailing;
 using Core.Security.Entities;
 using Core.Security.Enums;
 using MediatR;
+using MimeKit;
 using System.Web;
 
 namespace Application.Features.Auth.Commands.EnableEmailAuthenticator
