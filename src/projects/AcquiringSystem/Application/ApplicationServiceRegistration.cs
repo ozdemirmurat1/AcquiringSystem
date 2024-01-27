@@ -18,6 +18,7 @@ namespace Application
             services.AddMediatR(configuration =>
             {
                 configuration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+                //configuration.AddOpenBehavior(typeof(AuthorizationBehavior<,>));
                 configuration.AddOpenBehavior(typeof(AuthorizationBehavior<,>));
                 configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
                 configuration.AddOpenBehavior(typeof(RequestValidationBehavior<,>));

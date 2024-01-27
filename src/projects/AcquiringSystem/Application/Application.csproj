@@ -13,31 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Auth\Commands\EnableOtpAuthenticator\" />
-    <Folder Include="Features\Auth\Commands\Login\" />
-    <Folder Include="Features\Auth\Commands\VerifyOtpAuthenticator\" />
-    <Folder Include="Features\Auth\Commands\VerifyEmailAuthenticator\" />
-    <Folder Include="Features\Auth\Commands\RevokeToken\" />
-    <Folder Include="Features\Auth\Commands\Register\" />
-    <Folder Include="Features\Auth\Commands\RefreshToken\" />
-    <Folder Include="Features\Auth\Rules\" />
     <Folder Include="Features\Auth\Resources\" />
-    <Folder Include="Features\Auth\Profiles\" />
     <Folder Include="Features\Chains\Constants\" />
     <Folder Include="Features\Merchants\Constants\" />
-    <Folder Include="Features\OperationClaims\Commands\Delete\" />
-    <Folder Include="Features\OperationClaims\Commands\Update\" />
-    <Folder Include="Features\OperationClaims\Constants\" />
-    <Folder Include="Features\OperationClaims\Rules\" />
-    <Folder Include="Features\OperationClaims\Queries\" />
-    <Folder Include="Features\OperationClaims\Profiles\" />
     <Folder Include="Features\Terminals\Constants\" />
-    <Folder Include="Services\AuthenticatorService\" />
-    <Folder Include="Services\AuthService\" />
-    <Folder Include="Services\ImageService\" />
-    <Folder Include="Services\UserOperationClaims\" />
-    <Folder Include="Services\TranslateService\" />
-    <Folder Include="Services\OperationClaims\" />
   </ItemGroup>
 
   <ItemGroup>

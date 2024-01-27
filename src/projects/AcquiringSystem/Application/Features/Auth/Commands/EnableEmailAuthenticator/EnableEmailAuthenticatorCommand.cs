@@ -1,4 +1,8 @@
-﻿using Core.Security.Entities;
+﻿using Application.Features.Auth.Rules;
+using Application.Services.AuthenticatorService;
+using Application.Services.Repositories;
+using Application.Services.UsersService;
+using Core.Security.Entities;
 using Core.Security.Enums;
 using MediatR;
 using System.Web;
