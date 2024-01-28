@@ -9,31 +9,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "corePackages", "corePackage
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "projects", "projects", "{521A71D1-7DEF-44B0-BFB1-0777D69324F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Application", "src\corePackages\Core.Application\Core.Application.csproj", "{36A700D7-2654-4B91-9BAB-C04F93EDC1E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Application", "src\corePackages\Core.Application\Core.Application.csproj", "{36A700D7-2654-4B91-9BAB-C04F93EDC1E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.CrossCuttingConcerns", "src\corePackages\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj", "{3A4BC416-C53C-404B-9BF3-EC0FD5892839}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.CrossCuttingConcerns", "src\corePackages\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj", "{3A4BC416-C53C-404B-9BF3-EC0FD5892839}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.ElasticSearch", "src\corePackages\Core.ElasticSearch\Core.ElasticSearch.csproj", "{2CA1D5CE-0F6F-427E-A53B-409A2C6744B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.ElasticSearch", "src\corePackages\Core.ElasticSearch\Core.ElasticSearch.csproj", "{2CA1D5CE-0F6F-427E-A53B-409A2C6744B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Mailing", "src\corePackages\Core.Mailing\Core.Mailing.csproj", "{7ADC04E4-89DA-4886-8954-67FB3C19792A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Mailing", "src\corePackages\Core.Mailing\Core.Mailing.csproj", "{7ADC04E4-89DA-4886-8954-67FB3C19792A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Persistence", "src\corePackages\Core.Persistence\Core.Persistence.csproj", "{813D663E-7488-4D48-8A6A-973CD45C0DE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Persistence", "src\corePackages\Core.Persistence\Core.Persistence.csproj", "{813D663E-7488-4D48-8A6A-973CD45C0DE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Security", "src\corePackages\Core.Security\Core.Security.csproj", "{7B97798A-A5B2-4A65-B5AB-284531C018E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Security", "src\corePackages\Core.Security\Core.Security.csproj", "{7B97798A-A5B2-4A65-B5AB-284531C018E7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AcquiringSystem", "AcquiringSystem", "{97D7712A-C870-4F3A-9362-8F2FCEA0C4B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\projects\AcquiringSystem\Application\Application.csproj", "{3C45F207-6F70-48B7-B081-EF0777F2FDC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "src\projects\AcquiringSystem\Application\Application.csproj", "{3C45F207-6F70-48B7-B081-EF0777F2FDC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\projects\AcquiringSystem\Domain\Domain.csproj", "{087BA48E-DC72-4DE1-9D69-C36E53A7EB28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\projects\AcquiringSystem\Domain\Domain.csproj", "{087BA48E-DC72-4DE1-9D69-C36E53A7EB28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "src\projects\AcquiringSystem\Infrastructure\Infrastructure.csproj", "{3EBCD184-F5D9-4DBD-87FA-66FF5875B5B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\projects\AcquiringSystem\Infrastructure\Infrastructure.csproj", "{3EBCD184-F5D9-4DBD-87FA-66FF5875B5B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "src\projects\AcquiringSystem\Persistence\Persistence.csproj", "{34862417-5D1B-45EA-9C7A-FE983D7E2EB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "src\projects\AcquiringSystem\Persistence\Persistence.csproj", "{34862417-5D1B-45EA-9C7A-FE983D7E2EB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "src\projects\AcquiringSystem\WebAPI\WebAPI.csproj", "{D05208DA-B4F9-4681-8333-2E7D502C4AD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "src\projects\AcquiringSystem\WebAPI\WebAPI.csproj", "{D05208DA-B4F9-4681-8333-2E7D502C4AD9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{581B2542-7653-404C-B3C7-B2EC10AAEDAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.WebAPI", "Core.WebAPI\Core.WebAPI.csproj", "{6E76C0B7-E096-48A7-A888-1D85DC80E456}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,10 @@ Global
 		{D05208DA-B4F9-4681-8333-2E7D502C4AD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D05208DA-B4F9-4681-8333-2E7D502C4AD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D05208DA-B4F9-4681-8333-2E7D502C4AD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E76C0B7-E096-48A7-A888-1D85DC80E456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E76C0B7-E096-48A7-A888-1D85DC80E456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E76C0B7-E096-48A7-A888-1D85DC80E456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E76C0B7-E096-48A7-A888-1D85DC80E456}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,6 +110,7 @@ Global
 		{3EBCD184-F5D9-4DBD-87FA-66FF5875B5B3} = {97D7712A-C870-4F3A-9362-8F2FCEA0C4B4}
 		{34862417-5D1B-45EA-9C7A-FE983D7E2EB7} = {97D7712A-C870-4F3A-9362-8F2FCEA0C4B4}
 		{D05208DA-B4F9-4681-8333-2E7D502C4AD9} = {97D7712A-C870-4F3A-9362-8F2FCEA0C4B4}
+		{6E76C0B7-E096-48A7-A888-1D85DC80E456} = {D243064C-B6D3-4E6B-B13D-06D06CE6AACE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8B813FEE-3472-4F5A-980E-E0BD2D90DD42}

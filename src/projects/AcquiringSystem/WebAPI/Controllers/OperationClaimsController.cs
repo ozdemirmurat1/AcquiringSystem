@@ -5,12 +5,14 @@ using Application.Features.OperationClaims.Queries.GetById;
 using Application.Features.OperationClaims.Queries.GetList;
 using Core.Application.Requests;
 using Core.Application.Responses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Admin")] // KULLANICI İLE İLGİLİ BİLGİLERE ERİŞMEK İSTİYORSAN GEREKLİ. DAHA SONRA AUTHORİZATİONBEHAVİOR A GİDİP GEREKLİ BİLGİLERİ BULACAK!!!!!!
     public class OperationClaimsController : BaseController
     {
         [HttpGet("{Id}")]

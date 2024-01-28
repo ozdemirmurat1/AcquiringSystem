@@ -3,6 +3,7 @@ using Application;
 using Core.Security;
 using Core.Security.Encryption;
 using Core.Security.JWT;
+using Core.WebAPI.Extensions.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -17,11 +18,12 @@ namespace WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddHttpContextAccessor();
             builder.Services.AddControllers();
             builder.Services.AddApplicationServices();
             builder.Services.AddSecurityServices();
             builder.Services.AddPersistenceServices(builder.Configuration);
-            builder.Services.AddHttpContextAccessor();
+            
 
             const string tokenOptionsConfigurationSection = "TokenOptions";
             TokenOptions tokenOptions =
@@ -65,7 +67,7 @@ namespace WebAPI
                             + "`Enter your token in the text input below.`"
                     }
                 );
-                //opt.OperationFilter<BearerSecurityRequirementOperationFilter>();
+                opt.OperationFilter<BearerSecurityRequirementOperationFilter>();
             });
 
             var app = builder.Build();
@@ -90,6 +92,12 @@ namespace WebAPI
 
 
             app.MapControllers();
+
+            const string webApiConfigurationSection = "WebAPIConfiguration";
+            WebApiConfiguration webApiConfiguration =
+                app.Configuration.GetSection(webApiConfigurationSection).Get<WebApiConfiguration>()
+                ?? throw new InvalidOperationException($"\"{webApiConfigurationSection}\" section cannot found in configuration.");
+            app.UseCors(opt => opt.WithOrigins(webApiConfiguration.AllowedOrigins).AllowAnyHeader().AllowAnyMethod().AllowCredentials());
 
             app.Run();
         }
