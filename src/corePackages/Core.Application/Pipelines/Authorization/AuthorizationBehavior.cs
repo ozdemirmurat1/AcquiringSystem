@@ -25,6 +25,7 @@ namespace Core.Application.Pipelines.Authorization
                 throw new AuthorizationException("You are not authenticated.");
 
             // BURADA VERİLEN ROLE UYGUNLUK KONTROLÜ YAPILIYOR. KODUN İHTİYACINA GÖRE DÜZELTİLEBİLİR.
+            // request.Roles.All fonksiyonu da kullanılabilir.
 
             bool isNotMatchedAUserRoleClaimWithRequestRoles = userRoleClaims
                 .FirstOrDefault(
