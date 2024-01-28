@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Auth\Resources\" />
-    <Folder Include="Features\Chains\Constants\" />
     <Folder Include="Features\Merchants\Constants\" />
     <Folder Include="Features\Terminals\Constants\" />
   </ItemGroup>

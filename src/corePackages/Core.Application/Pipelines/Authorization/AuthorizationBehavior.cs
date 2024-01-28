@@ -24,9 +24,11 @@ namespace Core.Application.Pipelines.Authorization
             if (userRoleClaims == null)
                 throw new AuthorizationException("You are not authenticated.");
 
+            // BURADA VERİLEN ROLE UYGUNLUK KONTROLÜ YAPILIYOR. KODUN İHTİYACINA GÖRE DÜZELTİLEBİLİR.
+
             bool isNotMatchedAUserRoleClaimWithRequestRoles = userRoleClaims
                 .FirstOrDefault(
-                    userRoleClaim => userRoleClaim == GeneralOperationClaims.Admin || request.Roles.Any(role => role == userRoleClaim)
+                    userRoleClaim => userRoleClaim == GeneralOperationClaims.Admin && request.Roles.Any(role => role == userRoleClaim)
                 )
                 .IsNullOrEmpty();
             if (isNotMatchedAUserRoleClaimWithRequestRoles)
