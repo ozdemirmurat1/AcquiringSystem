@@ -1,5 +1,6 @@
 
 using Application;
+using Core.CrossCuttingConcerns.Exceptions.Extensions;
 using Core.Security;
 using Core.Security.Encryption;
 using Core.Security.JWT;
@@ -18,12 +19,11 @@ namespace WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddHttpContextAccessor();
             builder.Services.AddControllers();
             builder.Services.AddApplicationServices();
             builder.Services.AddSecurityServices();
             builder.Services.AddPersistenceServices(builder.Configuration);
-            
+            builder.Services.AddHttpContextAccessor();
 
             const string tokenOptionsConfigurationSection = "TokenOptions";
             TokenOptions tokenOptions =
@@ -79,10 +79,10 @@ namespace WebAPI
                 {
                     opt.DocExpansion(DocExpansion.None);
                 });
-                //app.ConfigureCustomExceptionMiddleware();
+                app.ConfigureCustomExceptionMiddleware();
             }
 
-            app.UseCors();
+            //app.UseCors();
 
             app.UseHttpsRedirection();
 

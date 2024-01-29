@@ -1,8 +1,12 @@
 ﻿using Application.Features.Chains.Rules;
 using Application.Services.Repositories;
+using Core.CrossCuttingConcerns.Logging;
 using Core.CrossCuttingConcerns.Logging.Serilog;
 using Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Http;
+using System.Text.Json;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Application.Features.Chains.Commands.Create
 {
@@ -12,12 +16,13 @@ namespace Application.Features.Chains.Commands.Create
         private readonly IChainRepository _chainRepository;
         private readonly ChainBusinessRules _chainBusinessRules;
         private readonly LoggerServiceBase _loggerServiceBase;
-
-        public CreateChainCommandHandler(IChainRepository chainRepository, ChainBusinessRules chainBusinessRules, LoggerServiceBase loggerServiceBase)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public CreateChainCommandHandler(IChainRepository chainRepository, ChainBusinessRules chainBusinessRules, LoggerServiceBase loggerServiceBase, IHttpContextAccessor httpContextAccessor)
         {
             _chainRepository = chainRepository;
             _chainBusinessRules = chainBusinessRules;
             _loggerServiceBase = loggerServiceBase;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<CreateChainCommandResponse> Handle(CreateChainCommand request, CancellationToken cancellationToken)
@@ -32,7 +37,21 @@ namespace Application.Features.Chains.Commands.Create
                 idType:request.IdType
             );
 
-            _loggerServiceBase.Info("İŞ YERİ BAŞARIYLA OLUŞTURULDU!");
+            List<LogParameter> logParameters =
+               new()
+               {
+                new LogParameter {Type=request.GetType().Name, Value=request}
+               };
+            LogDetail logDetail =
+                new()
+                {
+                    MethodName = "CreateChainCommandHandler",
+                    Parameters = logParameters,
+                    User = _httpContextAccessor.HttpContext.User.Identity?.Name ?? "?"
+                };
+
+            _loggerServiceBase.Info(JsonSerializer.Serialize(logDetail));
+
             await _chainRepository.AddAsync(chain);
 
             return new();

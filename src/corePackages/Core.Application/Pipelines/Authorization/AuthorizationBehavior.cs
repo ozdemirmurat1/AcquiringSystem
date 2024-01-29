@@ -21,7 +21,7 @@ namespace Core.Application.Pipelines.Authorization
         {
             List<string>? userRoleClaims = _httpContextAccessor.HttpContext.User.ClaimRoles();
 
-            if (userRoleClaims == null)
+            if (userRoleClaims?.Count==0)
                 throw new AuthorizationException("You are not authenticated.");
 
             // BURADA VERİLEN ROLE UYGUNLUK KONTROLÜ YAPILIYOR. KODUN İHTİYACINA GÖRE DÜZELTİLEBİLİR.
