@@ -37,21 +37,6 @@ namespace Application.Features.Chains.Commands.Create
                 idType:request.IdType
             );
 
-            List<LogParameter> logParameters =
-               new()
-               {
-                new LogParameter {Type=request.GetType().Name, Value=request}
-               };
-            LogDetail logDetail =
-                new()
-                {
-                    MethodName = "CreateChainCommandHandler",
-                    Parameters = logParameters,
-                    User = _httpContextAccessor.HttpContext.User.Identity?.Name ?? "?"
-                };
-
-            _loggerServiceBase.Info(JsonSerializer.Serialize(logDetail));
-
             await _chainRepository.AddAsync(chain);
 
             return new();

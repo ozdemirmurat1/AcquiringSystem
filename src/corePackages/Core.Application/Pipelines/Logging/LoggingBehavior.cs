@@ -30,6 +30,7 @@ namespace Core.Application.Pipelines.Logging
             LogDetail logDetail =
                 new()
                 {
+                    // METHOD İSMİ TAM GELMİYOR BAK!!!
                     MethodName = next.Method.Name,
                     Parameters = logParameters,
                     User = _httpContextAccessor.HttpContext.User.Identity?.Name ?? "?"
