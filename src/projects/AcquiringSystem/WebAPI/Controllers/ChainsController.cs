@@ -31,8 +31,8 @@ namespace WebAPI.Controllers
             return Ok(response);
         }
 
-        [HttpPost("[action]")]
-        public async Task<IActionResult> Delete([FromBody]DeleteChainCommand request, CancellationToken cancellationToken)
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Delete([FromQuery]DeleteChainCommand request, CancellationToken cancellationToken)
         {
             DeleteChainCommandResponse response = await Mediator.Send(request, cancellationToken);
             return Ok(response);

@@ -27,6 +27,8 @@ namespace Core.Application.Pipelines.Logging
                 new LogParameter {Type=request.GetType().Name, Value=request}
                 };
 
+            // metot name de query ve command ların ismi api ile aynı olabilir.Böylece çözüm sağlayabilirsin.
+
             LogDetail logDetail =
                 new()
                 {
