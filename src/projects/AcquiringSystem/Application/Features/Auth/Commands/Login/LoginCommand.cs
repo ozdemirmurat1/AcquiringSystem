@@ -78,6 +78,8 @@ namespace Application.Features.Auth.Commands.Login
 
                 loggedResponse.AccessToken = createdAccessToken;
                 loggedResponse.RefreshToken = addedRefreshToken;
+                loggedResponse.RefreshTokenDto =new RefreshTokenDto() { Expiration=loggedResponse.RefreshToken.Expires,Token=loggedResponse.RefreshToken.Token };
+                // REFRESH TOKEN DTO ELDE EDEBİLİRİSN
                 return loggedResponse;
             }
         }

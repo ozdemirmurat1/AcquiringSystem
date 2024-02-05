@@ -8,14 +8,19 @@ namespace Application.Features.Auth.Commands.Login
     {
         public AccessToken? AccessToken { get; set; }
         public Core.Security.Entities.RefreshToken? RefreshToken { get; set; }
+
+        public RefreshTokenDto? RefreshTokenDto { get; set; }
+
         public AuthenticatorType? RequiredAuthenticatorType { get; set; }
 
         public LoggedHttpResponse ToHttpResponse() =>
-            new() { AccessToken = AccessToken, RequiredAuthenticatorType = RequiredAuthenticatorType };
+            new() { AccessToken = AccessToken,RefreshTokenDto=RefreshTokenDto, RequiredAuthenticatorType = RequiredAuthenticatorType };
 
         public class LoggedHttpResponse
         {
             public AccessToken? AccessToken { get; set; }
+
+            public RefreshTokenDto? RefreshTokenDto { get; set; }
             public AuthenticatorType? RequiredAuthenticatorType { get; set; }
         }
     }
