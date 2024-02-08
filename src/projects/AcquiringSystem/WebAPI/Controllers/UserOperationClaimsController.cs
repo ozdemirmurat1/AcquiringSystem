@@ -5,12 +5,14 @@ using Application.Features.UserOperationClaims.Queries.GetById;
 using Application.Features.UserOperationClaims.Queries.GetList;
 using Core.Application.Requests;
 using Core.Application.Responses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Admin")]
     public class UserOperationClaimsController : BaseController
     {
         [HttpGet("{Id}")]
@@ -29,6 +31,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost]
+        
         public async Task<IActionResult> Add([FromBody] CreateUserOperationClaimCommand createUserOperationClaimCommand)
         {
             CreatedUserOperationClaimResponse result = await Mediator.Send(createUserOperationClaimCommand);

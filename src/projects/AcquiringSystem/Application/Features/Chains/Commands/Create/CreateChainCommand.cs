@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using Core.Application.Pipelines.Authorization;
+using MediatR;
+using static Application.Features.Chains.Constants.ChainsOperationClaims;
 
 namespace Application.Features.Chains.Commands.Create
 {
@@ -6,5 +8,8 @@ namespace Application.Features.Chains.Commands.Create
          string ChainCode,
          string TaxAdministration,
          string ChamberOfCommerce,
-         string IdType ) : IRequest<CreateChainCommandResponse>;
+         string IdType) : IRequest<CreateChainCommandResponse>, ISecuredRequest
+    {
+        public string[] Roles => new[] { ChainAdd };
+    }
 }

@@ -18,6 +18,7 @@ namespace WebAPI.Controllers
     public class ChainsController:BaseController
     {
         [HttpPost("[action]")]
+        [Authorize(AuthenticationSchemes = "Admin")]
         public async Task<IActionResult> Create([FromBody]CreateChainCommand request, CancellationToken cancellationToken)
         {
             CreateChainCommandResponse response = await Mediator.Send(request, cancellationToken);
@@ -25,6 +26,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("[action]")]
+        [Authorize(AuthenticationSchemes = "Admin")]
         public async Task<IActionResult> Update([FromBody]UpdateChainCommand request, CancellationToken cancellationToken)
         {
             UpdateChainCommandResponse response = await Mediator.Send(request,cancellationToken);
