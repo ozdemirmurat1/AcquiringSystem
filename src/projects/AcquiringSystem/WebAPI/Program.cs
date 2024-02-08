@@ -10,6 +10,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Persistence;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using WebAPI.ActionFilters;
+using WebAPI.Models;
 
 namespace WebAPI
 {
@@ -19,7 +21,10 @@ namespace WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers(conf =>
+            {
+                conf.Filters.Add<ActionNameGetAttribute>();
+            });
             builder.Services.AddApplicationServices();
             builder.Services.AddSecurityServices();
             builder.Services.AddPersistenceServices(builder.Configuration);
@@ -72,6 +77,8 @@ namespace WebAPI
                 );
                 opt.OperationFilter<BearerSecurityRequirementOperationFilter>();
             });
+
+            builder.Services.AddScoped<ActionNameModel>(i => new ActionNameModel() { Name = "DEFAULT" });
 
             var app = builder.Build();
 

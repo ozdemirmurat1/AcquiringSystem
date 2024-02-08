@@ -9,6 +9,7 @@ using Core.Application.Requests;
 using Core.Application.Responses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebAPI.ActionFilters;
 
 namespace WebAPI.Controllers
 {
@@ -19,6 +20,7 @@ namespace WebAPI.Controllers
     {
         [HttpPost("[action]")]
         [Authorize(AuthenticationSchemes = "Admin")]
+        [ActionNameGet(headerKey: "Action-Name")]
         public async Task<IActionResult> Create([FromBody]CreateChainCommand request, CancellationToken cancellationToken)
         {
             CreateChainCommandResponse response = await Mediator.Send(request, cancellationToken);
