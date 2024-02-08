@@ -47,9 +47,12 @@ namespace WebAPI
                 });
 
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
-                policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials()
-              ));
+            builder.Services.AddCors(opt =>
+                opt.AddDefaultPolicy(p =>
+                    {
+                    _ = p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                 })
+                    );
 
             builder.Services.AddSwaggerGen(opt =>
             {
@@ -82,9 +85,11 @@ namespace WebAPI
                 app.ConfigureCustomExceptionMiddleware();
             }
 
-            //app.UseCors();
+            app.UseCors();
 
             app.UseHttpsRedirection();
+
+            
 
             app.UseAuthentication();
 
@@ -97,7 +102,6 @@ namespace WebAPI
             WebApiConfiguration webApiConfiguration =
                 app.Configuration.GetSection(webApiConfigurationSection).Get<WebApiConfiguration>()
                 ?? throw new InvalidOperationException($"\"{webApiConfigurationSection}\" section cannot found in configuration.");
-            app.UseCors(opt => opt.WithOrigins(webApiConfiguration.AllowedOrigins).AllowAnyHeader().AllowAnyMethod().AllowCredentials());
 
             app.Run();
         }

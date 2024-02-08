@@ -30,7 +30,9 @@ namespace Persistence.EntityConfigurations
             List<UserOperationClaim> userOperationClaims = new();
 
             UserOperationClaim adminUserOperationClaim = new(id: 1, userId: 1, operationClaimId: 1);
+            UserOperationClaim adminUserOperationClaim2 = new(id: 2, userId: 1, operationClaimId: 23);
             userOperationClaims.Add(adminUserOperationClaim);
+            userOperationClaims.Add(adminUserOperationClaim2);
 
             return userOperationClaims;
         }

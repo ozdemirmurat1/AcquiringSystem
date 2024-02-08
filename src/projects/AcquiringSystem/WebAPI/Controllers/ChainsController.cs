@@ -14,7 +14,7 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(AuthenticationSchemes = "Admin")]
+    
     public class ChainsController:BaseController
     {
         [HttpPost("[action]")]
@@ -53,6 +53,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("[action]")]
+        [Authorize(AuthenticationSchemes = "Admin")]
         public async Task<IActionResult> GetList([FromQuery]PageRequest pageRequest)
         {
             GetListChainQuery getListChainQuery = new() { PageRequest = pageRequest };
